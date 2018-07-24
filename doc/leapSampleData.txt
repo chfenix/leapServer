@@ -1,0 +1,67 @@
+Frame id: 637213, timestamp: 293933057575, hands: 2, fingers: 10, tools: 0, gestures 10
+  Right hand, id: 324, palm position: (162.966, 231.996, 32.8333)
+  pitch: 19.254625996704227 degrees, roll: -8.043320412839872 degrees, yaw: 14.631146296570245 degrees
+  Arm direction: (-0.294901, 0.559584, -0.774531), wrist position: (158.359, 218.368, 80.9004), elbow position: (231.385, 79.7982, 272.698)
+    TYPE_THUMB, id: 3240, length: 47.798424mm, width: 18.572245mm
+      TYPE_METACARPAL bone, start: (131.158, 213.569, 75.5469), end: (131.158, 213.569, 75.5469), direction: (0, 0, 0)
+      TYPE_PROXIMAL bone, start: (131.158, 213.569, 75.5469), end: (123.645, 219.242, 30.7435), direction: (0.164111, -0.123909, 0.978629)
+      TYPE_INTERMEDIATE bone, start: (123.645, 219.242, 30.7435), end: (120.759, 221.839, -0.285372), direction: (0.0922723, -0.0830309, 0.992266)
+      TYPE_DISTAL bone, start: (120.759, 221.839, -0.285372), end: (116.048, 225.171, -20.9597), direction: (0.219481, -0.155267, 0.963182)
+    TYPE_INDEX, id: 3241, length: 53.93519mm, width: 17.74021mm
+      TYPE_METACARPAL bone, start: (142.967, 231.779, 74.284), end: (146.621, 245.884, 8.40172), direction: (-0.0541505, -0.209039, 0.976407)
+      TYPE_PROXIMAL bone, start: (146.621, 245.884, 8.40172), end: (152.792, 262.105, -26.9732), direction: (-0.156618, -0.411669, 0.897775)
+      TYPE_INTERMEDIATE bone, start: (152.792, 262.105, -26.9732), end: (155.573, 266.072, -48.605), direction: (-0.125431, -0.178992, 0.975822)
+      TYPE_DISTAL bone, start: (155.573, 266.072, -48.605), end: (157.02, 265.596, -64.2008), direction: (-0.0923871, 0.0304143, 0.995259)
+    TYPE_MIDDLE, id: 3242, length: 61.45482mm, width: 17.423243mm
+      TYPE_METACARPAL bone, start: (154.26, 231.741, 74.3488), end: (166.338, 243.602, 12.6411), direction: (-0.188755, -0.185369, 0.96437)
+      TYPE_PROXIMAL bone, start: (166.338, 243.602, 12.6411), end: (181.443, 260.068, -25.5031), direction: (-0.341681, -0.372466, 0.862857)
+      TYPE_INTERMEDIATE bone, start: (181.443, 260.068, -25.5031), end: (188.452, 263.482, -50.3907), direction: (-0.268768, -0.130929, 0.954265)
+      TYPE_DISTAL bone, start: (188.452, 263.482, -50.3907), end: (191.725, 261.998, -67.2469), direction: (-0.189924, 0.0860971, 0.978016)
+    TYPE_RING, id: 3243, length: 59.090446mm, width: 16.579319mm
+      TYPE_METACARPAL bone, start: (165.122, 228.852, 75.1393), end: (184.207, 237.593, 21.6615), direction: (-0.332197, -0.152157, 0.930856)
+      TYPE_PROXIMAL bone, start: (184.207, 237.593, 21.6615), end: (202.456, 251.07, -12.4639), direction: (-0.445339, -0.328866, 0.832778)
+      TYPE_INTERMEDIATE bone, start: (202.456, 251.07, -12.4639), end: (211.559, 253.523, -36.0569), direction: (-0.358284, -0.0965483, 0.928607)
+      TYPE_DISTAL bone, start: (211.559, 253.523, -36.0569), end: (216.063, 251.649, -52.4837), direction: (-0.262865, 0.10934, 0.958617)
+    TYPE_PINKY, id: 3244, length: 46.325817mm, width: 14.727048mm
+      TYPE_METACARPAL bone, start: (174.199, 219.588, 76.6137), end: (198.949, 227.897, 30.282), direction: (-0.465388, -0.156241, 0.871208)
+      TYPE_PROXIMAL bone, start: (198.949, 227.897, 30.282), end: (218.459, 234.637, 5.26978), direction: (-0.601611, -0.207835, 0.771277)
+      TYPE_INTERMEDIATE bone, start: (218.459, 234.637, 5.26978), end: (227, 234.481, -10.5036), direction: (-0.476164, 0.00869424, 0.879313)
+      TYPE_DISTAL bone, start: (227, 234.481, -10.5036), end: (232.429, 231.474, -25.0432), direction: (-0.343422, 0.190203, 0.919719)
+  Left hand, id: 326, palm position: (-126.295, 203.355, -62.9233)
+  pitch: 17.15625357234562 degrees, roll: 21.811934199321627 degrees, yaw: 14.235822631372722 degrees
+  Arm direction: (0.810434, 0.0921208, -0.578542), wrist position: (-145.135, 191.084, -19.7273), elbow position: (-339.916, 168.943, 119.321)
+    TYPE_THUMB, id: 3260, length: 46.391796mm, width: 18.025696mm
+      TYPE_METACARPAL bone, start: (-119.486, 188.915, -10.6096), end: (-119.486, 188.915, -10.6096), direction: (0, 0, 0)
+      TYPE_PROXIMAL bone, start: (-119.486, 188.915, -10.6096), end: (-86.4662, 201.944, -37.337), direction: (-0.743114, -0.293219, 0.601501)
+      TYPE_INTERMEDIATE bone, start: (-86.4662, 201.944, -37.337), end: (-69.7218, 204.837, -62.4847), direction: (-0.551704, -0.0953089, 0.828577)
+      TYPE_DISTAL bone, start: (-69.7218, 204.837, -62.4847), end: (-62.8208, 203.077, -82.0625), direction: (-0.331251, 0.0844617, 0.939755)
+    TYPE_INDEX, id: 3261, length: 52.34797mm, width: 17.218145mm
+      TYPE_METACARPAL bone, start: (-130.06, 205.401, -18.46), end: (-101.679, 218.047, -76.1086), direction: (-0.433369, -0.193109, 0.880284)
+      TYPE_PROXIMAL bone, start: (-101.679, 218.047, -76.1086), end: (-84.6014, 224.287, -109.753), direction: (-0.446556, -0.163157, 0.879754)
+      TYPE_INTERMEDIATE bone, start: (-84.6014, 224.287, -109.753), end: (-73.8365, 223.069, -128.342), direction: (-0.500331, 0.0566077, 0.863982)
+      TYPE_DISTAL bone, start: (-73.8365, 223.069, -128.342), end: (-65.8557, 219.584, -140.811), direction: (-0.524748, 0.229153, 0.819834)
+    TYPE_MIDDLE, id: 3262, length: 59.64631mm, width: 16.910507mm
+      TYPE_METACARPAL bone, start: (-139.492, 204.319, -23.9368), end: (-120.017, 214.059, -82.0987), direction: (-0.313598, -0.156825, 0.936516)
+      TYPE_PROXIMAL bone, start: (-120.017, 214.059, -82.0987), end: (-112.885, 219.221, -124.092), direction: (-0.166203, -0.120316, 0.978724)
+      TYPE_INTERMEDIATE bone, start: (-112.885, 219.221, -124.092), end: (-106.404, 217.624, -148.508), direction: (-0.256074, 0.0630856, 0.964596)
+      TYPE_DISTAL bone, start: (-106.404, 217.624, -148.508), end: (-101.032, 214.113, -163.957), direction: (-0.321093, 0.20989, 0.923496)
+    TYPE_RING, id: 3263, length: 57.351517mm, width: 16.09142mm
+      TYPE_METACARPAL bone, start: (-148.711, 200.53, -28.4379), end: (-138.893, 206.686, -82.9799), direction: (-0.176073, -0.110414, 0.978165)
+      TYPE_PROXIMAL bone, start: (-138.893, 206.686, -82.9799), end: (-138.231, 209.216, -122.666), direction: (-0.0166523, -0.0636085, 0.997836)
+      TYPE_INTERMEDIATE bone, start: (-138.231, 209.216, -122.666), end: (-135.234, 206.518, -146.993), direction: (-0.121519, 0.109406, 0.986541)
+      TYPE_DISTAL bone, start: (-135.234, 206.518, -146.993), end: (-131.855, 202.413, -162.752), direction: (-0.203163, 0.246861, 0.947515)
+    TYPE_PINKY, id: 3264, length: 44.96253mm, width: 14.293656mm
+      TYPE_METACARPAL bone, start: (-156.302, 190.754, -31.1393), end: (-154.692, 196.038, -82.4589), direction: (-0.0311913, -0.102369, 0.994257)
+      TYPE_PROXIMAL bone, start: (-154.692, 196.038, -82.4589), end: (-160.303, 195.283, -113.421), direction: (0.178258, 0.0239611, 0.983692)
+      TYPE_INTERMEDIATE bone, start: (-160.303, 195.283, -113.421), end: (-160.755, 191.903, -130.494), direction: (0.0259463, 0.19418, 0.980623)
+      TYPE_DISTAL bone, start: (-160.755, 191.903, -130.494), end: (-159.229, 186.906, -144.92), direction: (-0.0994222, 0.32567, 0.940242)
+  Swipe id: 19, STATE_UPDATE, position: (117.132, 224.405, -16.2046), direction: (0.951041, 0.050596, -0.304896), speed: 253.6532
+  Circle id: 4, STATE_UPDATE, progress: 1.8237016, radius: 101.23034, angle: 3.8276195526123047, clockwise
+  Swipe id: 20, STATE_UPDATE, position: (156.687, 265.705, -60.6138), direction: (0.971178, 0.0438483, -0.234287), speed: 314.36337
+  Circle id: 5, STATE_UPDATE, progress: 1.9997107, radius: 126.367424, angle: 3.5312461853027344, clockwise
+  Swipe id: 21, STATE_UPDATE, position: (190.973, 262.34, -63.37), direction: (0.989779, 0.00739592, -0.142416), speed: 330.6183
+  Circle id: 6, STATE_UPDATE, progress: 1.9214305, radius: 128.15335, angle: 3.509917259216309, clockwise
+  Swipe id: 22, STATE_UPDATE, position: (215.027, 252.08, -48.7056), direction: (0.997658, -0.0487792, -0.0479585), speed: 334.89276
+  Circle id: 7, STATE_UPDATE, progress: 1.8954715, radius: 118.94251, angle: 3.902592658996582, clockwise
+  Swipe id: 23, STATE_UPDATE, position: (231.181, 232.166, -21.6991), direction: (0.998056, -0.0509917, 0.0358242), speed: 328.3538
+  Circle id: 18, STATE_UPDATE, progress: 1.4368869, radius: 107.80835, angle: 3.995633125305176, clockwise

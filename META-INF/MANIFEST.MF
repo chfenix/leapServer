@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+
+Main-Class: com.raycomart.Main
+
+ClassPath: lib/LeapJava.jar lib/libTUIO.jar
