@@ -1,9 +1,8 @@
 package com.raycomart.leap;
 
-import com.illposed.osc.OSCBundle;
-import com.illposed.osc.OSCMessage;
-import com.illposed.osc.OSCPacket;
-import com.illposed.osc.OSCPortOut;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Controller.PolicyFlag;
 import com.leapmotion.leap.Frame;
@@ -12,7 +11,6 @@ import com.leapmotion.leap.GestureList;
 import com.leapmotion.leap.Hand;
 import com.leapmotion.leap.Listener;
 import com.raycomart.Constants;
-import com.raycomart.tuio.OSCMsgFactory;
 
 /**
  * Leap 监听服务
@@ -22,7 +20,6 @@ import com.raycomart.tuio.OSCMsgFactory;
  */
 public class LeapListener extends Listener {
 	
-	private OSCPortOut oscPort;
 
 	/**
 	 * LeapMotion连接初始化
@@ -40,14 +37,6 @@ public class LeapListener extends Listener {
         // 设置策略
         controller.setPolicyFlags(PolicyFlag.POLICY_BACKGROUND_FRAMES);		// 程序在后台运行时leap motion依然获取数据信息。在leap motion的控制面板中也要将“允许后台应用程序”的设置开启
         
-        try {
-        	// FIXME 此处改为读取配置文件，ip/端口
-        	String host = "127.0.0.1";
-        	int port = 3333;
-			oscPort = new OSCPortOut(java.net.InetAddress.getByName(host), port);
-		} catch (Exception e) {
-			oscPort = null;
-		}
 	}
 
 	/**
@@ -77,14 +66,7 @@ public class LeapListener extends Listener {
                          + ", tools: " + frame.tools().count()
                          + ", gestures " + frame.gestures().count());
         
-        OSCBundle oscBundle = new OSCBundle();
-        
-        // TODO 此处需要优化，如何确定消息类型
-        OSCMsgFactory msgFactory = OSCMsgFactory.getInstance(OSCMsgFactory.MSG_TYPE_2DCUR);
-        
-        OSCMessage aliveMsg = msgFactory.genAliveMsg(null);	// 生成alive消息
-        oscBundle.addPacket(aliveMsg);
-
+        List<Hand> handList = new ArrayList<Hand>();
         // 获取手部信息，遍历
         for(Hand hand : frame.hands()) {
             String handType = hand.isLeft() ? "左手" : "右手";
@@ -106,12 +88,8 @@ public class LeapListener extends Listener {
             	continue;
             }
             
-            // 写入alive消息中sessionid
-            aliveMsg.addArgument(hand.id());
+            handList.add(hand);
             
-            // 生成手掌set消息
-            OSCMessage setMsg = msgFactory.genSetMsg(hand);
-            oscBundle.addPacket(setMsg);
             // 获取手掌法向量和手掌的方向
            /* Vector normal = hand.palmNormal();
             Vector direction = hand.direction();*/
@@ -211,23 +189,9 @@ public class LeapListener extends Listener {
             }
         }*/
 
-        OSCMessage frameMsg = msgFactory.genFseqMsg(frame.id());
-
-		oscBundle.addPacket(frameMsg);
-
-		sendOSC(oscBundle);
-	}
-	
-	/**
-	 * 发送TUIO报文
-	 * 
-	 * @param packet
-	 */
-	private void sendOSC(OSCPacket packet) {
-		try {
-			oscPort.send(packet);
-		} catch (java.io.IOException e) {
-		}
+        // 创建消息发送Sender
+        MsgSender sender = MsgSenderFactory.createSender();
+        sender.send(frame.id(), handList, null);		// 发送消息
 	}
 	
 	@Override

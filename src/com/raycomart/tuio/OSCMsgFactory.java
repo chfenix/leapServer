@@ -128,10 +128,10 @@ public class OSCMsgFactory {
 			objMsg.addArgument(hand.id());
 			objMsg.addArgument(posX);	// x
 			objMsg.addArgument(posY);	// y
-//			objMsg.addArgument(posZ);	// z
+			objMsg.addArgument(posZ);	// z
 			objMsg.addArgument(0f);		// X
 			objMsg.addArgument(0f);		// Y
-//			objMsg.addArgument(0f);		// Z
+			objMsg.addArgument(0f);		// Z
 			objMsg.addArgument(0f);		// m
 			
 			return objMsg;

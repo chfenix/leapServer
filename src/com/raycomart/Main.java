@@ -21,6 +21,9 @@ public class Main {
 		Constants.Y_AREA_MIN = 100f;
 		Constants.Y_AREA_MAX = 300f;
 		
+		Constants.Z_AREA_MIN = -100f;
+		Constants.Z_AREA_MAX = 100f;
+		
 		// 启动LeapMotion监听
 		startLeapListener();
 	}
