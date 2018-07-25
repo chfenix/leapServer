@@ -2,6 +2,9 @@ package com.raycomart;
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.leapmotion.leap.Controller;
 import com.raycomart.leap.LeapListener;
 
@@ -13,7 +16,10 @@ import com.raycomart.leap.LeapListener;
  */
 public class Main {
 	
+	private static Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+	
 	public static void main(String[] args) {
+		
 		// FIXME 此处增加读取配置文件
 		Constants.X_AREA_MIN = -133.33f;
 		Constants.X_AREA_MAX = 133.33f;
@@ -39,7 +45,7 @@ public class Main {
         controller.addListener(listener);
 
         // FIXME 此处修改为后台服务
-        System.out.println("Press Enter to quit...");
+        log.info("Press Enter to quit...");
         try {
             System.in.read();
         } catch (IOException e) {

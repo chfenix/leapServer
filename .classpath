@@ -9,5 +9,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/libTUIO.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-api-2.11.0.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-core-2.11.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -3,6 +3,9 @@ package com.raycomart.leap;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Controller.PolicyFlag;
 import com.leapmotion.leap.Frame;
@@ -20,13 +23,14 @@ import com.raycomart.Constants;
  */
 public class LeapListener extends Listener {
 	
-
+	private Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+	
 	/**
 	 * LeapMotion连接初始化
 	 */
 	@Override
 	public void onConnect(Controller controller) {
-		System.out.println("LeapMotion已连接...");
+		log.info("LeapMotion已连接...");
 		
 		// 激活手势
         controller.enableGesture(Gesture.Type.TYPE_SWIPE);		// 横扫
@@ -59,7 +63,7 @@ public class LeapListener extends Listener {
             return;
         }
         
-        System.out.println("Frame id: " + frame.id()
+        log.info("Frame id: " + frame.id()
                          + ", timestamp: " + frame.timestamp()
                          + ", hands: " + frame.hands().count()
                          + ", fingers: " + frame.fingers().count()
@@ -74,7 +78,7 @@ public class LeapListener extends Listener {
             float posY = hand.palmPosition().getY();
             float posZ = hand.palmPosition().getZ();
             
-            System.out.println("[" + hand.id() + "]" +handType 
+            log.info("[" + hand.id() + "]" +handType 
                              + " 手掌位置:(" + posX  + "mm "
                              + posY + "mm "
                              + posZ + "mm)");
@@ -84,7 +88,7 @@ public class LeapListener extends Listener {
             		|| (posY < Constants.Y_AREA_MIN && posY > Constants.Y_AREA_MAX)
             		|| (posZ < Constants.Z_AREA_MIN && posZ > Constants.Z_AREA_MAX)) {
             	// 超出作用区域，抛弃数据
-            	System.out.println("[" + hand.id() + "]" +handType + " 超出作用区域，忽略...");
+            	log.info("[" + hand.id() + "]" +handType + " 超出作用区域，忽略...");
             	continue;
             }
             
@@ -95,26 +99,26 @@ public class LeapListener extends Listener {
             Vector direction = hand.direction();*/
 
             // 计算手掌的 俯仰,横滚, 航向角度
-           /* System.out.println("  pitch: " + Math.toDegrees(direction.pitch()) + " degrees, "
+           /* log.info("  pitch: " + Math.toDegrees(direction.pitch()) + " degrees, "
                              + "roll: " + Math.toDegrees(normal.roll()) + " degrees, "
                              + "yaw: " + Math.toDegrees(direction.yaw()) + " degrees");*/
 
             // 获取手臂信息
             /*Arm arm = hand.arm();
-            System.out.println("  Arm direction: " + arm.direction()
+            log.info("  Arm direction: " + arm.direction()
                              + ", wrist position: " + arm.wristPosition()
                              + ", elbow position: " + arm.elbowPosition());*/
 
             // 获取手指信息
             /*for (Finger finger : hand.fingers()) {
-                System.out.println("    " + finger.type() + ", id: " + finger.id()
+                log.info("    " + finger.type() + ", id: " + finger.id()
                                  + ", length: " + finger.length()
                                  + "mm, width: " + finger.width() + "mm");
 
                 //Get Bones
                 for(Bone.Type boneType : Bone.Type.values()) {
                     Bone bone = finger.bone(boneType);
-                    System.out.println("      " + bone.type()
+                    log.info("      " + bone.type()
                                      + " bone, start: " + bone.prevJoint()
                                      + ", end: " + bone.nextJoint()
                                      + ", direction: " + bone.direction());
@@ -124,7 +128,7 @@ public class LeapListener extends Listener {
 
         // 获取工具信息
        /* for(Tool tool : frame.tools()) {
-            System.out.println("  Tool id: " + tool.id()
+            log.info("  Tool id: " + tool.id()
                              + ", position: " + tool.tipPosition()
                              + ", direction: " + tool.direction());
         }*/
@@ -154,7 +158,7 @@ public class LeapListener extends Listener {
                         sweptAngle = (circle.progress() - previousUpdate.progress()) * 2 * Math.PI;
                     }
 
-                    System.out.println("  Circle id: " + circle.id()
+                    log.info("  Circle id: " + circle.id()
                                + ", " + circle.state()
                                + ", progress: " + circle.progress()
                                + ", radius: " + circle.radius()
@@ -163,7 +167,7 @@ public class LeapListener extends Listener {
                     break;
                 case TYPE_SWIPE:
                     SwipeGesture swipe = new SwipeGesture(gesture);
-                    System.out.println("  Swipe id: " + swipe.id()
+                    log.info("  Swipe id: " + swipe.id()
                                + ", " + swipe.state()
                                + ", position: " + swipe.position()
                                + ", direction: " + swipe.direction()
@@ -171,20 +175,20 @@ public class LeapListener extends Listener {
                     break;
                 case TYPE_SCREEN_TAP:
                     ScreenTapGesture screenTap = new ScreenTapGesture(gesture);
-                    System.out.println("  Screen Tap id: " + screenTap.id()
+                    log.info("  Screen Tap id: " + screenTap.id()
                                + ", " + screenTap.state()
                                + ", position: " + screenTap.position()
                                + ", direction: " + screenTap.direction());
                     break;
                 case TYPE_KEY_TAP:
                     KeyTapGesture keyTap = new KeyTapGesture(gesture);
-                    System.out.println("  Key Tap id: " + keyTap.id()
+                    log.info("  Key Tap id: " + keyTap.id()
                                + ", " + keyTap.state()
                                + ", position: " + keyTap.position()
                                + ", direction: " + keyTap.direction());
                     break;
                 default:
-                    System.out.println("Unknown gesture type.");
+                    log.info("Unknown gesture type.");
                     break;
             }
         }*/
@@ -196,36 +200,36 @@ public class LeapListener extends Listener {
 	
 	@Override
 	public void onServiceConnect(Controller arg0) {
-		System.out.println("LeapMotion服务启动...");
+		log.info("LeapMotion服务启动...");
 	}
 
 	@Override
 	public void onServiceDisconnect(Controller arg0) {
-		System.out.println("LeapMotion服务关闭...");
+		log.info("LeapMotion服务关闭...");
 	}
 	
 	@Override
 	public void onDeviceChange(Controller arg0) {
-		System.out.println("LeapMotion设备状态改变...");
+		log.info("LeapMotion设备状态改变...");
 	}
 
 	@Override
 	public void onDisconnect(Controller arg0) {
-		System.out.println("LeapMotion已断开...");
+		log.info("LeapMotion已断开...");
 	}
 
 	@Override
 	public void onExit(Controller arg0) {
-		System.out.println("LeapMotion退出...");
+		log.info("LeapMotion退出...");
 	}
 
 	@Override
 	public void onFocusLost(Controller arg0) {
-		System.out.println("LeapMotion程序失去焦点...");
+		log.info("LeapMotion程序失去焦点...");
 	}
 
 	@Override
 	public void onInit(Controller arg0) {
-		System.out.println("LeapMotion设备初始化...");
+		log.info("LeapMotion设备初始化...");
 	}
 }

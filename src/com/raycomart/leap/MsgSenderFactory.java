@@ -1,5 +1,8 @@
 package com.raycomart.leap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.raycomart.tuio.TUIOSender;
 
 /**
@@ -11,6 +14,8 @@ import com.raycomart.tuio.TUIOSender;
 */
 
 public class MsgSenderFactory {
+	
+	private static Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 	
 	private static MsgSender sender;
 
@@ -30,12 +35,12 @@ public class MsgSenderFactory {
 			// 根据发送类型实例化不同的实现类
 			switch (senderType) {
 				case "TUIO":	// TUIO
-					System.out.println("SENDER TYPE IS [TUIO]!");
+					log.info("SENDER TYPE IS [TUIO]!");
 					sender = new TUIOSender();
 					break;
 					
 				case "UPD":		// UDP
-					System.out.println("SENDER TYPE IS [UPD]!");
+					log.info("SENDER TYPE IS [UPD]!");
 					
 					break;
 		

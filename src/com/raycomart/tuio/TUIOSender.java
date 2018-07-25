@@ -2,6 +2,9 @@ package com.raycomart.tuio;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.illposed.osc.OSCBundle;
 import com.illposed.osc.OSCMessage;
 import com.illposed.osc.OSCPortOut;
@@ -17,6 +20,8 @@ import com.raycomart.leap.MsgSender;
 */
 
 public class TUIOSender extends MsgSender {
+	
+	private Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 	
 	private static OSCPortOut oscPort;
 	
@@ -83,12 +88,13 @@ public class TUIOSender extends MsgSender {
 			if(packet.getPackets() != null && packet.getPackets().length > 0) {
 				for (int i = 0; i < packet.getPackets().length; i++) {
 					OSCMessage oneMsg = (OSCMessage)packet.getPackets()[i];
-					System.out.print(oneMsg.getAddress() + " ");
+					StringBuffer sbPackets = new StringBuffer();
+					sbPackets.append(oneMsg.getAddress() + " ");
 					for (int j = 0; j < oneMsg.getArguments().length; j++) {
 						Object arg = oneMsg.getArguments()[j];
-						System.out.print(arg + " ");
+						sbPackets.append(arg + " ");
 					}
-					System.out.println();
+					log.info(sbPackets.toString());
 				}
 			}
 			

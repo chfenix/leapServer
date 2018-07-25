@@ -2,6 +2,9 @@ package com.raycomart.tuio;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.illposed.osc.OSCMessage;
 import com.leapmotion.leap.Hand;
 import com.raycomart.Constants;
@@ -14,6 +17,8 @@ import com.raycomart.Constants;
 */
 
 public class OSCMsgFactory {
+	
+	private Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 	
 	/*
 	 * 手掌类型定义
