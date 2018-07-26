@@ -1,0 +1,21 @@
+# 服务消息类型(TUIO/UDP)
+messageType=TUIO
+
+# LeapMotion有效区域
+# X轴
+XMin=-133.33
+XMax=133.33
+
+# Y轴
+YMin=100
+YMax=300
+
+# Z轴
+ZMin=-100
+ZMax=100
+
+# TUIO配置，仅在消息类型为TUIO时有效
+# TUIO客户端IP
+tuioHost=127.0.0.1
+# TUIO客户端监听端口
+tuioPort=3333

@@ -18,7 +18,7 @@ import com.raycomart.Constants;
 
 public class OSCMsgFactory {
 	
-	private Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+	private Logger log = LogManager.getLogger();
 	
 	/*
 	 * 手掌类型定义

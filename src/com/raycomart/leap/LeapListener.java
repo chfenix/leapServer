@@ -23,7 +23,7 @@ import com.raycomart.Constants;
  */
 public class LeapListener extends Listener {
 	
-	private Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+	private Logger log = LogManager.getLogger();
 	
 	/**
 	 * LeapMotion连接初始化

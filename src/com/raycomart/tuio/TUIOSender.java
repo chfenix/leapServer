@@ -10,6 +10,7 @@ import com.illposed.osc.OSCMessage;
 import com.illposed.osc.OSCPortOut;
 import com.leapmotion.leap.Gesture;
 import com.leapmotion.leap.Hand;
+import com.raycomart.Constants;
 import com.raycomart.leap.MsgSender;
 
 /**
@@ -21,17 +22,18 @@ import com.raycomart.leap.MsgSender;
 
 public class TUIOSender extends MsgSender {
 	
-	private Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+	private Logger log = LogManager.getLogger();
 	
 	private static OSCPortOut oscPort;
 	
 	public TUIOSender() {
 		try {
-        	// FIXME 此处改为读取配置文件，ip/端口
-        	String host = "127.0.0.1";
-        	int port = 3333;
+        	String host = Constants.get("tuioHost").trim();
+        	int port = Integer.parseInt(Constants.get("tuioPort").trim());
+        	log.info("发送TUIO消息至 " + host + ":" + port);
 			oscPort = new OSCPortOut(java.net.InetAddress.getByName(host), port);
 		} catch (Exception e) {
+			e.printStackTrace();
 			oscPort = null;
 		}
 	}

@@ -16,19 +16,21 @@ import com.raycomart.leap.LeapListener;
  */
 public class Main {
 	
-	private static Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+	private static Logger log = LogManager.getLogger();
 	
 	public static void main(String[] args) {
 		
-		// FIXME 此处增加读取配置文件
-		Constants.X_AREA_MIN = -133.33f;
-		Constants.X_AREA_MAX = 133.33f;
+		// 载入配置文件
+		Constants.initProperties();
 		
-		Constants.Y_AREA_MIN = 100f;
-		Constants.Y_AREA_MAX = 300f;
+		Constants.X_AREA_MIN = Float.parseFloat(Constants.get("XMin").trim());
+		Constants.X_AREA_MAX = Float.parseFloat(Constants.get("XMax").trim());
 		
-		Constants.Z_AREA_MIN = -100f;
-		Constants.Z_AREA_MAX = 100f;
+		Constants.Y_AREA_MIN = Float.parseFloat(Constants.get("YMin").trim());
+		Constants.Y_AREA_MAX = Float.parseFloat(Constants.get("YMax").trim());
+		
+		Constants.Z_AREA_MIN = Float.parseFloat(Constants.get("ZMin").trim());
+		Constants.Z_AREA_MAX = Float.parseFloat(Constants.get("ZMax").trim());
 		
 		// 启动LeapMotion监听
 		startLeapListener();

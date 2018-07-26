@@ -1,5 +1,11 @@
 package com.raycomart;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Properties;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
 * @author Zhouluning
 * @version CreateTime：2018年7月20日 下午8:26:20
@@ -7,7 +13,18 @@ package com.raycomart;
 * 常量类
 */
 
-public class Constants {
+public class Constants extends Properties {
+	
+	private static Logger log = LogManager.getLogger();
+	
+	private static final long serialVersionUID = -6399397700644610347L;
+
+	public static Constants P = null;
+	
+	/*
+	 * properties文件
+	 */
+	public static final String PFILE_CONFIG = "config.txt";	
 
 	/**
 	 * LeapMotion作用区域
@@ -25,4 +42,43 @@ public class Constants {
 	public static float Z_AREA_MAX = 0f;		// +Z
 	
 	
+	/**
+	 * 载入所有配置文件
+	 */
+	public static synchronized void initProperties() {
+		try {
+			if(P != null) {
+				return;
+			}
+			
+			log.info("loading properties..............");
+			P = new Constants();
+			String[] arrProFiles = {PFILE_CONFIG};
+			
+			for (String proFile : arrProFiles) {
+				log.info("load properties file:" + proFile);
+				P.load(Constants.class.getResourceAsStream("/" + proFile));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static String get(String key) {
+		String value = "";
+		try {
+			if (key == null || P == null) {
+				return "";
+			}
+			if (P.containsKey(key))
+				value = new String(P.getProperty(key).getBytes("UTF-8"),
+						"UTF-8").trim();
+			else
+				value = "";
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
 }
