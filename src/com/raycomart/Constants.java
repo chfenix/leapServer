@@ -41,6 +41,17 @@ public class Constants extends Properties {
 	public static float Z_AREA_MIN = 0f;		// -Z
 	public static float Z_AREA_MAX = 0f;		// +Z
 	
+	/*
+	 * 手类型
+	 */
+	public static final String HAND_TYPE_RIGHT = "R";	// 右手
+	public static final String HAND_TYPE_LEFT = "L";	// 左手
+	
+	/*
+	 * 是否转换坐标为0-1
+	 */
+	public static Boolean MAP_COORDINATE = false; 
+	
 	
 	/**
 	 * 载入所有配置文件

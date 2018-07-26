@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.raycomart.Constants;
 import com.raycomart.tuio.TUIOSender;
+import com.raycomart.udp.UDPSender;
 
 /**
 * @author Zhouluning
@@ -41,8 +42,8 @@ public class MsgSenderFactory {
 					sender = new TUIOSender();
 					break;
 					
-				case "UPD":		// UDP
-					
+				case "UDP":		// UDP
+					sender = new UDPSender();
 					break;
 		
 				default:

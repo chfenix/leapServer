@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.illposed.osc.OSCMessage;
 import com.leapmotion.leap.Hand;
-import com.raycomart.Constants;
+import com.raycomart.Utils;
 
 /**
 * @author Zhouluning
@@ -19,12 +19,6 @@ import com.raycomart.Constants;
 public class OSCMsgFactory {
 	
 	private Logger log = LogManager.getLogger();
-	
-	/*
-	 * 手掌类型定义
-	 */
-	public static final Integer LEFT_HAND = 1;
-	public static final Integer RIGHT_HAND = 2;
 	
 	/*
 	 * 消息类型定义
@@ -114,18 +108,15 @@ public class OSCMsgFactory {
 	public OSCMessage genSetMsg(Hand hand) {
 		
 		try {
-			// 获取手掌类型
-			Integer handType = hand.isLeft() ? LEFT_HAND : RIGHT_HAND;
-			
 			// 获取手掌坐标，单位(mm)
 			float realX = hand.palmPosition().getX();
 			float realY = hand.palmPosition().getY();
 			float realZ = hand.palmPosition().getZ();
 			
 			// 根据Leap作用区域设定，映射为TUIO坐标
-			float posX = mapCoordinateX(realX);
-			float posY = mapCoordinateY(realY);
-			float posZ = mapCoordinateZ(realZ);
+			float posX = Utils.mapCoordinateX(realX);
+			float posY = Utils.mapCoordinateY(realY);
+			float posZ = Utils.mapCoordinateZ(realZ);
 				
 			OSCMessage objMsg = new OSCMessage("/tuio/" + MSG_TYPE);
 			objMsg.addArgument("set");
@@ -145,34 +136,8 @@ public class OSCMsgFactory {
 			e.printStackTrace();
 		}
 		
-		
 		return null;
 	}
 	
-	/**
-	 * 转换LeapMotion X轴坐标至TUIO坐标
-	 * @param pos
-	 * @return
-	 */
-	private float mapCoordinateX(float pos) {
-		return (float)((pos - Constants.X_AREA_MIN)/(Constants.X_AREA_MAX - Constants.X_AREA_MIN));
-	}
-
-	/**
-	 * 转换LeapMotion Y轴坐标至TUIO坐标
-	 * @param pos
-	 * @return
-	 */
-	private float mapCoordinateY(float pos) {
-		return (float)(1-(pos - Constants.Y_AREA_MIN)/(Constants.Y_AREA_MAX - Constants.Y_AREA_MIN));
-	}
-
-	/**
-	 * 转换LeapMotion Z轴坐标至TUIO坐标
-	 * @param pos
-	 * @return
-	 */
-	private float mapCoordinateZ(float pos) {
-		return (float)((pos - Constants.Z_AREA_MIN)/(Constants.Z_AREA_MAX - Constants.Z_AREA_MIN));
-	}
+	
 }

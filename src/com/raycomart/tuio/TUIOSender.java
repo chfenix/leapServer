@@ -28,8 +28,8 @@ public class TUIOSender extends MsgSender {
 	
 	public TUIOSender() {
 		try {
-        	String host = Constants.get("tuioHost").trim();
-        	int port = Integer.parseInt(Constants.get("tuioPort").trim());
+        	String host = Constants.get("clientHost").trim();
+        	int port = Integer.parseInt(Constants.get("clientPort").trim());
         	log.info("发送TUIO消息至 " + host + ":" + port);
 			oscPort = new OSCPortOut(java.net.InetAddress.getByName(host), port);
 		} catch (Exception e) {

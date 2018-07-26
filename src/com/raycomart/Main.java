@@ -23,6 +23,7 @@ public class Main {
 		// 载入配置文件
 		Constants.initProperties();
 		
+		// LeapMotion作用区域
 		Constants.X_AREA_MIN = Float.parseFloat(Constants.get("XMin").trim());
 		Constants.X_AREA_MAX = Float.parseFloat(Constants.get("XMax").trim());
 		
@@ -31,6 +32,9 @@ public class Main {
 		
 		Constants.Z_AREA_MIN = Float.parseFloat(Constants.get("ZMin").trim());
 		Constants.Z_AREA_MAX = Float.parseFloat(Constants.get("ZMax").trim());
+		
+		// 是否转换坐标
+		Constants.MAP_COORDINATE = new Boolean(Constants.get("mapCoordinate"));
 		
 		// 启动LeapMotion监听
 		startLeapListener();
