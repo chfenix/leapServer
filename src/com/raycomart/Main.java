@@ -1,6 +1,6 @@
 package com.raycomart;
 
-import java.io.IOException;
+import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -50,12 +50,16 @@ public class Main {
         Controller controller = new Controller();
         controller.addListener(listener);
 
-        // FIXME 此处修改为后台服务
-        log.info("Press Enter to quit...");
-        try {
-            System.in.read();
-        } catch (IOException e) {
-        	log.error("System Error!",e);
+        // 检测输入，保持程序
+        log.info("输入EXIT 关闭服务");
+        Scanner scan = new Scanner(System.in);
+        while(scan.hasNext()) {
+            String in = scan.next().toString();
+            if("EXIT".equals(in.toUpperCase())) {
+            	log.info("LeapServer已关闭!");
+            	scan.close();
+                break;
+            }
         }
 
         // Remove the sample listener when done
