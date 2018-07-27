@@ -53,8 +53,6 @@ public class LeapListener extends Listener {
         Frame frame = controller.frame();
         
         if (frame.hands().isEmpty() && frame.gestures().isEmpty()) {
-            System.out.print(".");
-            // FIXME 此处修改为使用配置文件
             return;
         }
         

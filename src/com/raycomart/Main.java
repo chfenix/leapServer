@@ -1,6 +1,8 @@
 package com.raycomart;
 
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,7 +38,10 @@ public class Main {
 		// 是否转换坐标
 		Constants.MAP_COORDINATE = new Boolean(Constants.get("mapCoordinate"));
 		
-		// 启动LeapMotion监听
+		Timer timer = new Timer();
+		timer.schedule(new TimerAlive(), 10 * 1000, 60 * 1000);
+		
+		// 启动LeapMotion监听，必须放到最后执行
 		startLeapListener();
 	}
 	
@@ -64,5 +69,12 @@ public class Main {
 
         // Remove the sample listener when done
         controller.removeListener(listener);
+	}
+	
+	static class TimerAlive extends TimerTask {
+	    @Override
+	    public void run() {
+	        log.info("LeapServer is alive!");
+	    }
 	}
 }
