@@ -82,14 +82,13 @@ public class UDPSender extends MsgSender {
 	        // 生成Json报文
 	        Gson gson = new Gson();
 	        String strData = gson.toJson(leapFrame);
-	        log.info(strData);
+	        log.debug(strData);
 	        
 	        sendUdp(strData);	// 发送UDP数据
 	        
 			
 		} catch (Exception e) {
-			// FIXME 所有exception改成使用log输出
-			e.printStackTrace();
+			log.error("System Error!",e);
 		}
 	}
 	
@@ -110,7 +109,7 @@ public class UDPSender extends MsgSender {
 			ds.send(dp);
 			ds.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("System Error!",e);
 		}
 	}
 

@@ -55,11 +55,6 @@ public class LeapListener extends Listener {
         if (frame.hands().isEmpty() && frame.gestures().isEmpty()) {
             System.out.print(".");
             // FIXME 此处修改为使用配置文件
-            try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
             return;
         }
         
@@ -78,7 +73,7 @@ public class LeapListener extends Listener {
             float posY = hand.palmPosition().getY();
             float posZ = hand.palmPosition().getZ();
             
-            log.info("[" + hand.id() + "]" +handType 
+            log.debug("[" + hand.id() + "]" +handType 
                              + " 手掌位置:(" + posX  + "mm "
                              + posY + "mm "
                              + posZ + "mm)");
@@ -88,7 +83,7 @@ public class LeapListener extends Listener {
             		|| (posY < Constants.Y_AREA_MIN && posY > Constants.Y_AREA_MAX)
             		|| (posZ < Constants.Z_AREA_MIN && posZ > Constants.Z_AREA_MAX)) {
             	// 超出作用区域，抛弃数据
-            	log.info("[" + hand.id() + "]" +handType + " 超出作用区域，忽略...");
+            	log.debug("[" + hand.id() + "]" +handType + " 超出作用区域，忽略...");
             	continue;
             }
             

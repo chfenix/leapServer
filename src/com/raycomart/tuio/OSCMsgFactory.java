@@ -133,7 +133,7 @@ public class OSCMsgFactory {
 			return objMsg;
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("System Error!",e);
 		}
 		
 		return null;

@@ -72,7 +72,7 @@ public class Constants extends Properties {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("System Error!",e);
 		}
 	}
 	
@@ -88,7 +88,7 @@ public class Constants extends Properties {
 			else
 				value = "";
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			log.error("System Error!",e);
 		}
 		return value;
 	}

@@ -33,7 +33,7 @@ public class TUIOSender extends MsgSender {
         	log.info("发送TUIO消息至 " + host + ":" + port);
 			oscPort = new OSCPortOut(java.net.InetAddress.getByName(host), port);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("System Error!",e);
 			oscPort = null;
 		}
 	}
@@ -74,7 +74,7 @@ public class TUIOSender extends MsgSender {
 			
 			sendOSC(oscBundle);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("System Error!",e);
 		}
 		
 	}
@@ -96,13 +96,13 @@ public class TUIOSender extends MsgSender {
 						Object arg = oneMsg.getArguments()[j];
 						sbPackets.append(arg + " ");
 					}
-					log.info(sbPackets.toString());
+					log.debug(sbPackets.toString());
 				}
 			}
 			
 			oscPort.send(packet);
 		} catch (java.io.IOException e) {
-			e.printStackTrace();
+			log.error("System Error!",e);
 		}
 	}
 }

@@ -55,7 +55,7 @@ public class Main {
         try {
             System.in.read();
         } catch (IOException e) {
-            e.printStackTrace();
+        	log.error("System Error!",e);
         }
 
         // Remove the sample listener when done
