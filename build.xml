@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project prjLeapServer with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+	<property name="dir.basepath" value="."/>
+    <property name="dir.buildfile" value="."/>
+	<property name="dir.conffile" value="./conf"/>
+	<property name="dir.resourcefile" value="./resource"/>
+    <property name="dir.exportpath" value="${dir.buildfile}/export/LeapServer"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.exportpath}/LeapServer.jar">
+            <manifest>
+                <attribute name="Main-Class" value="com.raycomart.Main"/>
+                <attribute name="Class-Path" value=". lib/LeapJava.jar lib/libTUIO.jar lib/log4j-api-2.11.0.jar lib/log4j-core-2.11.0.jar lib/commons-io-2.6.jar lib/gson-2.8.5.jar"/>
+            </manifest>
+            <fileset dir="${dir.buildfile}/bin"/>
+        </jar>
+        <delete dir="${dir.exportpath}/lib"/>
+        <mkdir dir="${dir.exportpath}/lib"/>
+        <copy file="${dir.buildfile}/lib/LeapJava.jar" todir="${dir.exportpath}/lib"/>
+        <copy file="${dir.buildfile}/lib/libTUIO.jar" todir="${dir.exportpath}/lib"/>
+        <copy file="${dir.buildfile}/lib/log4j-api-2.11.0.jar" todir="${dir.exportpath}/lib"/>
+        <copy file="${dir.buildfile}/lib/log4j-core-2.11.0.jar" todir="${dir.exportpath}/lib"/>
+        <copy file="${dir.buildfile}/lib/commons-io-2.6.jar" todir="${dir.exportpath}/lib"/>
+        <copy file="${dir.buildfile}/lib/gson-2.8.5.jar" todir="${dir.exportpath}/lib"/>
+    	<copy  todir="${dir.exportpath}/lib/x64">
+    		<fileset dir="${dir.resourcefile}/x64"/>
+		</copy>
+    	
+    	<copy  todir="${dir.exportpath}">
+    		<fileset dir="${dir.conffile}"/>
+		</copy>
+    	<copy todir="${dir.exportpath}">
+    		<fileset dir="${dir.resourcefile}">
+    			<exclude name="x64/"/>  
+    		</fileset>
+    	</copy>
+    </target>
+</project>
+
+    	

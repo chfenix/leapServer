@@ -1,0 +1,1 @@
+java -jar -Djava.library.path=./lib/x64 LeapServer.jar 
