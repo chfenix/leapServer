@@ -1,7 +1,7 @@
 # LeapMotion服务
 
-LeapMotion服务，支持TUIO及UDP报文格式
-2018-11-25
+LeapMotion服务，支持TUIO及UDP报文格式 
+2018-11-26
    
 配置文件conf/config.txt
 >**服务消息类型[TUIO/UDP]**  
